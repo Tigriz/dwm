@@ -5,7 +5,7 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "lucy tewi:size=11" };
+static const char *fonts[]          = { "lucy tewi:size=11", "Unifont:size=11" };
 static const char dmenufont[]       = "lucy tewi:size=11";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -19,7 +19,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "", "7" "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -106,6 +106,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	// Fixing keys for french keyboard
 	TAGKEYS(                        0x26,                      0)
 	TAGKEYS(                        0xe9,                      1)
 	TAGKEYS(                        0x22,                      2)
@@ -116,18 +117,23 @@ static Key keys[] = {
 	TAGKEYS(                        0x5f,                      7)
 	TAGKEYS(                        0xe7,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-  { 0, XF86XK_AudioMute,		spawn,		SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("pamixer --allow-boost -i 10; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pamixer --allow-boost -d 10; kill -44 $(pidof dwmblocks)") },
-	{ 0, XF86XK_AudioPrev,		spawn,		SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotifyd /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous") },
-	{ 0, XF86XK_AudioNext,		spawn,		SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotifyd /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next") },
-  { 0, XF86XK_AudioPlay,		spawn,		SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotifyd /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause") }, 
-  { 0, XF86XK_MonBrightnessUp,	spawn,		SHCMD("brightnessctl s 20%+") },
-	{ 0, XF86XK_MonBrightnessDown,	spawn,		SHCMD("brightnessctl s 20%-") },
-  { 0,				XK_Print,	spawn,		SHCMD("maim ~/Pictures/Screenshots/pic-full-$(date '+%y%m%d-%H%M-%S').png") },
-  { Mod4Mask|ShiftMask, XK_s, spawn,    SHCMD("maim -s | xclip -selection clipboard -t image/png") },
-  { ShiftMask,			XK_Print,	spawn,		SHCMD("maim -s | xclip -selection clipboard -t image/png") },
-  { Mod4Mask,      XK_l, spawn,    SHCMD("pamixer -m; slock; pamixer -u") },
+	// Audio controls
+  	{ 0, XF86XK_AudioMute,	      spawn, SHCMD("pamixer -t; kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("pamixer --allow-boost -i 10; kill -44 $(pidof dwmblocks)") },
+	{ 0, XF86XK_AudioLowerVolume, spawn, SHCMD("pamixer --allow-boost -d 10; kill -44 $(pidof dwmblocks)") },
+	// Audio controls for spotifyd
+	{ 0, XF86XK_AudioPrev, spawn, SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotifyd /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous") },
+	{ 0, XF86XK_AudioNext, spawn, SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotifyd /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next") },
+  	{ 0, XF86XK_AudioPlay, spawn, SHCMD("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotifyd /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause") }, 
+  	// Brightness control
+	{ 0, XF86XK_MonBrightnessUp,   spawn, SHCMD("brightnessctl s 20%+") },
+	{ 0, XF86XK_MonBrightnessDown, spawn, SHCMD("brightnessctl s 20%-") },
+	// Screenshots
+  	{ 0, 				  XK_Print, spawn, SHCMD("maim ~/Pictures/Screenshots/pic-full-$(date '+%y%m%d-%H%M-%S').png") },
+  	{ Mod4Mask|ShiftMask, XK_s, 	spawn, SHCMD("maim -s | xclip -selection clipboard -t image/png") },
+  	{ ShiftMask,			XK_Print,	spawn,		SHCMD("maim -s | xclip -selection clipboard -t image/png") },
+	// Lockscreen
+  	{ Mod4Mask, XK_l, spawn, SHCMD("pamixer -m; slock; pamixer -u") },
 };
 
 /* button definitions */
