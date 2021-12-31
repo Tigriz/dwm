@@ -1,17 +1,17 @@
 # dwm - dynamic window manager
 dwm is an extremely fast, small, and dynamic window manager for X.
-
 *Custom build*
+
 ## Dependencies
 ### dwm
-xorg-server
-xorg-xinit
-xorg-xrandr (display management)
+    xorg-server  
+    xorg-xinit  
+    xorg-xrandr (display management)
 #### mine
-pamixer (audio controller)
-brightnessctl (brightness' display controller)
-maim (screenshots)
-xclip (X clipboard)
+    pamixer (audio controller)  
+    brightnessctl (brightness' display controller)  
+    maim (screenshots)  
+    xclip (X clipboard)
 
 ## Requirements
 In order to build dwm you need the Xlib header files.
@@ -23,7 +23,7 @@ the /usr/local namespace by default).
 Afterwards enter the following command to build and install dwm (if
 necessary as root):
 
-    `make clean install`
+    make clean install
 
 
 ## Running dwm
