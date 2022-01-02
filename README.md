@@ -7,11 +7,13 @@ dwm is an extremely fast, small, and dynamic window manager for X.
     xorg-server  
     xorg-xinit  
     xorg-xrandr (display management)
-#### mine
+### mine
     pamixer (audio controller)  
     brightnessctl (brightness' display controller)  
     maim (screenshots)  
     xclip (X clipboard)
+    tamsyn-font (font)
+    ttf-font-awesome-4 (icons)
 
 ## Requirements
 In order to build dwm you need the Xlib header files.
