@@ -19,7 +19,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -27,20 +27,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-  { "Chromium",    NULL,       NULL,       1 << 1,        0,           -1 },
-  { "Tor",         NULL,       NULL,       1 << 1,        0,           -1 },
-  { "Ferdi",       NULL,       NULL,       1 << 2,        0,           -1 },
-  { "Ripcord",     NULL,       NULL,       1 << 2,        0,           -1 },
-  { "code-oss",    NULL,       NULL,       1 << 3,        0,           -1 },
-  { "minecraft-launcher",NULL, NULL,       1 << 4,        0,           -1 },
-  { NULL,          NULL,       "osu!lazer",1 << 4,        0,           -1 },
-  { NULL,          NULL,       "spt",      1 << 5,        0,           -1 },
-  { "Audacity",    NULL,       NULL,       1 << 5,        0,           -1 },
-  { "Picard",      NULL,       NULL,       1 << 5,        0,           -1 },
-  { "Gimp",        NULL,       NULL,       1 << 6,        0,           -1 },
-  { "libreoffice", NULL,       NULL,       1 << 7,        0,           -1 },
-  { "Thunderbird", NULL,       NULL,       1 << 7,        0,           -1 },  
-  { NULL,          NULL,       "qBittorrent",1 << 8,      0,           -1 },
+  { "!",    NULL,       NULL,       1 << 1,        0,           -1 },
 };
 
 /* layout(s) */
